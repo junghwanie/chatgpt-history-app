@@ -13,7 +13,7 @@ from langchain_openai import ChatOpenAI
 st.set_page_config(page_title="ChatGPT", page_icon="🦜")
 st.title("🦜 ChatGPT")
 st.markdown('''
-- Refer to [@TeddyNote](https://github.com/teddylee777)
+- Refer to [@TeddyNote](hhttps://github.com/teddylee777/langchain-kr/tree/main)
 - [`Github 💻 chatgpt-history-app`](https://github.com/junghwanie/chatgpt-history-app)
 ''')
 
