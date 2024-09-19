@@ -13,8 +13,8 @@ from langchain_openai import ChatOpenAI
 st.set_page_config(page_title="ChatGPT", page_icon="🦜")
 st.title("🦜 ChatGPT")
 st.markdown('''
-- Refer to [@TeddyNote](https://www.youtube.com/c/@teddynote)
-- [`Github 💻 streamlit-tutorial`](https://github.com/happy-jihye/Streamlit-Tutorial)
+- Refer to [@TeddyNote](https://github.com/teddylee777)
+- [`Github 💻 chatgpt-history-app`](https://github.com/junghwanie/chatgpt-history-app)
 ''')
 
 # API KEY settings
