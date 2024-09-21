@@ -16,3 +16,9 @@ streamlit run app.py --server.address 0.0.0.0 --server.port [your port]
 docker build -t chatgpt-history-app .
 docker run -p 8501:8501 chatgpt-history-app
 ```
+
+#### Redis connected
+```
+brew install redis
+REDIS_URL = "redis://localhost:6379/0"
+```

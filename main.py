@@ -9,6 +9,8 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_openai import ChatOpenAI
+from langchain_community.chat_message_histories import RedisChatMessageHistory
+
 
 st.set_page_config(page_title="ChatGPT", page_icon="🦜")
 st.title("🦜 ChatGPT")
@@ -40,11 +42,17 @@ print_messages()
 # It needs to be modified so that it can be cached by putting it in the session state.
 # store = {} 
 
-def get_session_history(session_id: str) -> BaseChatMessageHistory:
-    if session_id not in st.session_state["store"]: # If the session ID is not in the store
-        # Create a new ChatMessageHistory object and save it to the store
-        st.session_state["store"][session_id] = ChatMessageHistory()
-    return st.session_state["store"][session_id] # Return session record for that session ID
+REDIS_URL = "redis://localhost:6379/0"
+
+# def get_session_history(session_id: str) -> BaseChatMessageHistory:
+#     if session_id not in st.session_state["store"]: # If the session ID is not in the store
+#         # Create a new ChatMessageHistory object and save it to the store
+#         st.session_state["store"][session_id] = ChatMessageHistory()
+#     return st.session_state["store"][session_id] # Return session record for that session ID
+
+# Chat message history stored in a Redis database
+def get_session_history(session_id: str) -> RedisChatMessageHistory:
+    return RedisChatMessageHistory(session_id, url=REDIS_URL)
 
 
 if user_input := st.chat_input("메시지를 입력해주세요."):
